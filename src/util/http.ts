@@ -3,7 +3,7 @@ import { FoodItem } from "../store/foodSlice";
 
 export const queryClient = new QueryClient();
 
-interface Food {
+export interface Food {
   name: string;
   price: number;
   image: {
@@ -24,13 +24,10 @@ export async function fetchFoods({ signal }: { signal: AbortSignal }) {
     const error = new Error("An error occurred while fetching the events");
     throw error;
   }
-  const tempFoodsArr = await response.json();
+  const foods = await response.json();
 
-  const newFoodsArr: Food[] = tempFoodsArr.map((food: Food) =>
-    Object.defineProperty(food, "quantity", { value: 1 })
-  );
-
-  const foods: Food[] = newFoodsArr;
-
-  return foods;
+  return foods.map((food: Food) => ({
+    ...food,
+    quantity: 1,
+  }));
 }

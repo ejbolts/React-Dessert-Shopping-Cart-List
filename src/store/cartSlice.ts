@@ -10,10 +10,14 @@ export interface CartItem {
 
 export interface CartState {
   items: CartItem[];
+  totalCost: number;
+  isOpen: boolean;
 }
 
 const initialState: CartState = {
   items: [],
+  totalCost: 0,
+  isOpen: false,
 };
 
 const cartSlice = createSlice({
@@ -26,8 +30,10 @@ const cartSlice = createSlice({
       );
       if (existingItem) {
         existingItem.quantity += action.payload.quantity;
+        state.totalCost += action.payload.price;
       } else {
         state.items.push(action.payload);
+        state.totalCost += action.payload.price * action.payload.quantity;
       }
     },
     removeItemFromCart(state, action: PayloadAction<string>) {
@@ -35,8 +41,15 @@ const cartSlice = createSlice({
         (item) => item.id !== Number(action.payload)
       );
     },
+    openModal(state) {
+      state.isOpen = true;
+    },
+    closeModal(state) {
+      state.isOpen = false;
+    },
   },
 });
 
-export const { addItemToCart, removeItemFromCart } = cartSlice.actions;
+export const { addItemToCart, removeItemFromCart, openModal, closeModal } =
+  cartSlice.actions;
 export default cartSlice.reducer;

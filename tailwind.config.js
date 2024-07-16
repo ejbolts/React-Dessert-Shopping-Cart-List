@@ -11,7 +11,8 @@ export default {
       },
       colors: {
         lightBG: '#FCF8F5',
-        orange: '#C83B0E'
+        orange: '#C83B0E',
+        orangeHover: '#952C0C'
       },
     },
   },

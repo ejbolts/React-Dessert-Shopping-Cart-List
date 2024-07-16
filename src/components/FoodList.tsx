@@ -4,7 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { addItemToCart } from "../store/cartSlice";
 import { RootState } from "../store/store";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { fetchFoods } from "../util/http";
+import { fetchFoods, Food } from "../util/http";
+
+import Button from "../UI/Button";
 export default function FoodList() {
   const queryClient = useQueryClient();
 
@@ -13,24 +15,31 @@ export default function FoodList() {
   // const count = useSelector((state: RootState) => state.cart.value);
   const dispatch = useDispatch();
   return (
-    <div className="gap-4 border-solid border-2 ml-14 h-full border-emerald-500 w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3  2xl:grid-cols-4 ">
-      {foods.data?.map((food) => {
+    <div className="gap-4 mx-14 mb-10 h-full  w-full grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3   2xl:grid-cols-4   ">
+      {foods.data?.map((food: Food) => {
         return (
-          <div key={food.id} className="flex flex-col">
-            <img
-              src={food.image.desktop}
-              alt="image of dessert"
-              className="rounded-md"
-            />
-            <button
-              className="p-4"
-              onClick={() => dispatch(addItemToCart(food))}
-            >
-              Add to Cart
-            </button>
-            <span>{food.category}</span>
-            <span>{food.name}</span>
-            <span>${food.price}</span>
+          <div key={food.id}>
+            <div className="flex flex-col  items-center">
+              <img
+                srcSet={`${food.image.mobile} 640w, ${food.image.desktop} `}
+                sizes="(max-width: 640px) "
+                alt="image of dessert"
+                className="rounded-md"
+              />
+              <Button food={food} />
+            </div>
+
+            <div className="flex flex-col">
+              <span className="text-stone-500 mt-2 max-sm:text-xl">
+                {food.category}
+              </span>
+              <span className="font-semibold text-stone-800 max-sm:text-2xl">
+                {food.name}
+              </span>
+              <span className="text-orange font-semibold max-sm:text-xl">
+                ${food.price.toFixed(2)}
+              </span>
+            </div>
           </div>
         );
       })}
