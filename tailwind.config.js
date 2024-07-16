@@ -9,7 +9,10 @@ export default {
       fontFamily: {
         sans: ['Red Hat Text', 'sans-serif'],
       },
+      colors: {
+        lightBG: '#FCF8F5',
+      },
     },
   },
   plugins: [],
-}
+};
