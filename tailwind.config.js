@@ -11,6 +11,7 @@ export default {
       },
       colors: {
         lightBG: '#FCF8F5',
+        orange: '#C83B0E'
       },
     },
   },

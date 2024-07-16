@@ -1,34 +1,36 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
 export default function Cart() {
+  const foods = useSelector((state: RootState) => state.cart.items);
   return (
     <div className="bg-white border-solid border-2 border-sky-500 rounded-md m-10 p-4  ">
-      <h2>Your Cart (7)</h2>
+      <h2 className="text-orange font-extrabold">
+        Your Cart ({`${foods.length}`})
+      </h2>
       <ul className="py-4">
-        <li className="border-solid border-2 border-sky-300">
-          <div className="flex items-center justify-between">
-            <div className="">
-              <p>classic Tiramisu</p>
-
-              <span>1x</span>
-              <span>@ $5.50</span>
-              <span>$5.50</span>
-            </div>
-            <button>X</button>
-          </div>
-        </li>
-        <li className="border-solid border-2 border-sky-300">
-          <div className="flex items-center justify-between">
-            <div className="">
-              <p>classic Tiramisu</p>
-
-              <span>1x</span>
-              <span>@ $5.50</span>
-              <span>$5.50</span>
-            </div>
-            <button>X</button>
-          </div>
-        </li>
+        {foods.map((food) => {
+          return (
+            <li key={food.id} className="border-solid border-2 border-sky-300">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p>{food.name}</p>
+                  <span className="text-orange font-semibold">
+                    {food.quantity}x
+                  </span>
+                  <div className="inline">
+                    <span className="px-2">@${food.price}</span>
+                    <span className="font-semibold">
+                      ${food.price * food.quantity}
+                    </span>
+                  </div>
+                </div>
+                <button>X</button>
+              </div>
+            </li>
+          );
+        })}
       </ul>
       <div className="flex justify-between py-6">
         <span>Order Total</span>
