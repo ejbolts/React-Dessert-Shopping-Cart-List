@@ -14,7 +14,7 @@ export default function CartList({ isModal }: CartListProp) {
     <>
       <ul
         className={`${
-          isModal ? "bg-lightBG rounded-md mt-8 px-4 " : "bg-white"
+          isModal ? "bg-lightBG rounded-t-md mt-8 px-4 " : "bg-white"
         } py-2 `}
       >
         {cart.items.map((food) => {
@@ -85,7 +85,7 @@ export default function CartList({ isModal }: CartListProp) {
       </ul>
       <div
         className={`${
-          isModal ? "bg-lightBG rounded-md mb-6" : "bg-white"
+          isModal ? "bg-lightBG rounded-b-md mb-6" : "bg-white"
         } flex justify-between items-center py-6 px-4`}
       >
         <span className="text-stone-600">Order Total</span>
