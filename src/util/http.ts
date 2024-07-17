@@ -1,21 +1,7 @@
 import { QueryClient } from "@tanstack/react-query";
-import { FoodItem } from "../store/foodSlice";
+import { CartItem } from "../store/cartSlice";
 
 export const queryClient = new QueryClient();
-
-export interface Food {
-  name: string;
-  price: number;
-  image: {
-    thumbnail: string;
-    mobile: string;
-    table: string;
-    desktop: string;
-  };
-  category: string;
-  quantity: number;
-  id: number;
-}
 
 export async function fetchFoods({ signal }: { signal: AbortSignal }) {
   const response = await fetch("../../data.json", { signal: signal });
@@ -26,8 +12,9 @@ export async function fetchFoods({ signal }: { signal: AbortSignal }) {
   }
   const foods = await response.json();
 
-  return foods.map((food: Food) => ({
+  return foods.map((food: CartItem) => ({
     ...food,
     quantity: 1,
+    isActive: undefined,
   }));
 }

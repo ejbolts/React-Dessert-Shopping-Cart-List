@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { useDispatch } from "react-redux";
-import { openModal } from "../store/cartSlice";
+import { openModal, removeItemFromCart } from "../store/cartSlice";
 import Modal from "../UI/Modal";
 export default function Cart() {
   const cart = useSelector((state: RootState) => state.cart);
@@ -10,7 +10,7 @@ export default function Cart() {
   return (
     <div className="bg-white w-1/2 rounded-md mr-10 p-4 place-self-start max-sm:hidden md:block">
       <h2 className="text-orange text-2xl font-extrabold">
-        Your Cart ({`${cart.items.length}`})
+        Your Cart ({`${cart.totalItems}`})
       </h2>
       <ul className="py-4">
         {cart.items.map((food) => {
@@ -37,7 +37,10 @@ export default function Cart() {
                   </div>
                 </div>
 
-                <button className="text-stone-500 hover:text-stone-800 p-1 ease-linear duration-200">
+                <button
+                  onClick={() => dispatch(removeItemFromCart(food.id))}
+                  className="text-stone-500 hover:text-stone-800 p-1 ease-linear duration-200"
+                >
                   <svg
                     fill="none"
                     viewBox="0 0 15 15"
