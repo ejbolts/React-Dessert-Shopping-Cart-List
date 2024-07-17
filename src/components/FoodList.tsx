@@ -1,12 +1,9 @@
-import { useDispatch } from "react-redux";
 import { CartItem } from "../store/cartSlice";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { fetchFoods } from "../util/http";
 
 import Button from "../UI/Button";
 export default function FoodList() {
-  const queryClient = useQueryClient();
-
   const foods = useQuery({ queryKey: ["foods"], queryFn: fetchFoods });
 
   return (
@@ -16,8 +13,8 @@ export default function FoodList() {
           <div key={food.id}>
             <div className="flex flex-col  items-center">
               <img
-                srcSet={`${food.image.mobile} 640w, ${food.image.desktop} `}
-                sizes="(max-width: 640px) "
+                srcSet={`${food.image.mobile} 767w, ${food.image.desktop} 770w`}
+                sizes="(max-width: 767px) 100vw, 770px"
                 alt="image of dessert"
                 className="rounded-md"
               />
@@ -25,13 +22,13 @@ export default function FoodList() {
             </div>
 
             <div className="flex flex-col">
-              <span className="text-stone-500 mt-2 max-sm:text-xl">
+              <span className="text-stone-500 mt-2 max-md:text-xl">
                 {food.category}
               </span>
-              <span className="font-semibold text-stone-800 max-sm:text-2xl">
+              <span className="font-semibold text-stone-800 max-md:text-2xl">
                 {food.name}
               </span>
-              <span className="text-orange font-semibold max-sm:text-xl">
+              <span className="text-orange font-semibold max-md:text-xl">
                 ${food.price.toFixed(2)}
               </span>
             </div>

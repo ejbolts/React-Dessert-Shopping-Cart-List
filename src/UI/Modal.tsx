@@ -36,12 +36,11 @@ const Modal: React.FC<ModalProps> = ({ children }) => {
   return ReactDOM.createPortal(
     <dialog
       ref={dialogRef}
-      className="modal-dialog"
+      className="modal-dialog rounded-xl md:w-[500px]"
       onClick={() => dispatch(closeModal())}
     >
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {children}
-        <button onClick={() => dispatch(closeModal())}>Close</button>
       </div>
     </dialog>,
     document.getElementById("modal")!
