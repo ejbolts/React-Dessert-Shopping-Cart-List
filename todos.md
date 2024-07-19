@@ -1,8 +1,8 @@
 # Additional features and changes
 
-add in clear all button
-side button that displays cart module on mobile display
+add in clear all button - done
+Dark mode
 real time search (name) and filter (category)
-user display pic with name
-confirm and close fixed button on bottom of screen mobile display
+user display pic with name - done
+confirm and close of modal cart fixed button on bottom of screen mobile display for better UX - done
 checkout form details on module before confirmed order

@@ -2,13 +2,13 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { useDispatch } from "react-redux";
-import { openModal, removeItemFromCart } from "../store/cartSlice";
+import { openModal } from "../store/cartSlice";
 import CartList from "./CartList";
 export default function Cart() {
   const cart = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
   return (
-    <div className="bg-white w-1/2 rounded-md mr-10 p-4 place-self-start hidden md:block sm:w-[760px]:block sm:w-[760px]:hidden">
+    <div className="bg-white w-1/2 max-md:min-w-full rounded-md mr-10 p-4 pb-6  place-self-start ">
       <h2 className="text-orange text-2xl font-extrabold">
         Your Cart ({`${cart.totalItems}`})
       </h2>
@@ -107,7 +107,7 @@ export default function Cart() {
 
           <button
             onClick={() => dispatch(openModal())}
-            className={`mt-8 p-3 px-6 w-full font-semibold rounded-full  flex items-center justify-center relative  text-white bg-orange hover:bg-orangeHover  ease-linear duration-200`}
+            className={`mt-4 p-3  md:px-6 w-full  mx-auto font-semibold rounded-full  flex items-center justify-center relative  text-white bg-orange hover:bg-orangeHover  ease-linear duration-200`}
           >
             Confirm Order
           </button>

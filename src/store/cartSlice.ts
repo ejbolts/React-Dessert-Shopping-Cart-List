@@ -63,6 +63,11 @@ const cartSlice = createSlice({
         state.totalItems--;
       }
     },
+    clearCart(state) {
+      state.items = [];
+      state.totalCost = 0;
+      state.totalItems = 0;
+    },
     openModal(state) {
       state.isOpen = true;
     },
@@ -72,6 +77,11 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItemToCart, removeItemFromCart, openModal, closeModal } =
-  cartSlice.actions;
+export const {
+  addItemToCart,
+  removeItemFromCart,
+  openModal,
+  closeModal,
+  clearCart,
+} = cartSlice.actions;
 export default cartSlice.reducer;

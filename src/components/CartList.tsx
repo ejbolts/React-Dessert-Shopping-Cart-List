@@ -1,5 +1,5 @@
 import React from "react";
-import { removeItemFromCart } from "../store/cartSlice";
+import { clearCart, removeItemFromCart } from "../store/cartSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
@@ -83,15 +83,27 @@ export default function CartList({ isModal }: CartListProp) {
           );
         })}
       </ul>
+      {!isModal && (
+        <div className="flex justify-end w-full">
+          <button
+            className="w-16 font-semibold ml-auto mr-2 my-4 hover:text-orange ease-linear duration-200"
+            onClick={() => dispatch(clearCart())}
+          >
+            Clear All
+          </button>
+        </div>
+      )}
       <div
         className={`${
           isModal ? "bg-lightBG rounded-b-md mb-6" : "bg-white"
-        } flex justify-between items-center py-6 px-4`}
+        } flex flex-col  py-4 px-2`}
       >
-        <span className="text-stone-600">Order Total</span>
-        <span className="font-extrabold text-stone-800 text-xl">
-          ${cart.totalCost.toFixed(2)}
-        </span>
+        <div className="flex justify-between items-center w-full">
+          <span className="text-stone-600">Order Total</span>
+          <span className="font-extrabold text-stone-800 text-xl">
+            ${cart.totalCost.toFixed(2)}
+          </span>
+        </div>
       </div>
     </>
   );

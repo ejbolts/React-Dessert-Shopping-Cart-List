@@ -36,7 +36,7 @@ const Modal: React.FC<ModalProps> = ({ children }) => {
   return ReactDOM.createPortal(
     <dialog
       ref={dialogRef}
-      className="modal-dialog rounded-xl md:w-[500px] max-md:mx-0 max-md:mb-0 px-4 max-md:min-w-full "
+      className="modal-dialog rounded-t-xl md:w-[500px] max-md:mx-0 max-md:mb-0 px-8 max-md:min-w-full "
       onClick={() => dispatch(closeModal())}
     >
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>

@@ -7,18 +7,22 @@ import Modal from "./UI/Modal";
 import CartList from "./components/CartList";
 import { useDispatch } from "react-redux";
 import { closeModal } from "./store/cartSlice";
+import MobileCartButton from "./UI/MobileCartButton";
 
 export default function App() {
   const dispatch = useDispatch();
+
   return (
     <div className="bg-lightBG min-h-screen ">
       <Header />
-      <div className="flex justify-between">
+      <div className="flex justify-between max-md:flex-wrap p-7">
         <FoodList />
         <Cart />
       </div>
+      <MobileCartButton />
+
       <Modal>
-        <div className="m-8 ">
+        <div className="my-6 mx-2">
           <svg
             width="48"
             height="48"
@@ -41,7 +45,7 @@ export default function App() {
           <CartList isModal={true} />
           <button
             onClick={() => dispatch(closeModal())}
-            className={`mt-4 p-3 px-6 w-full font-semibold rounded-full  flex items-center justify-center relative  text-white bg-orange hover:bg-orangeHover  ease-linear duration-200`}
+            className={`mt-4 p-3 w-full font-semibold rounded-full  flex items-center justify-center relative  text-white bg-orange hover:bg-orangeHover  ease-linear duration-200`}
           >
             Start New Order
           </button>

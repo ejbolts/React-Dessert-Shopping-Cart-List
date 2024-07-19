@@ -2,3 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.transition-opacity {
+  transition: opacity 0.3s;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
