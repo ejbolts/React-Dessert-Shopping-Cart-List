@@ -77,16 +77,27 @@ const cartSlice = createSlice({
     },
     searchItemName(state, action: PayloadAction<string>) {
       state.nameFilter = action.payload;
-      state.filteredItems = state.queryItems.filter((item) =>
-        item.name.toLowerCase().includes(state.nameFilter.toLowerCase())
-      );
+      state.filteredItems = state.queryItems
+        .filter((item) =>
+          item.name.toLowerCase().includes(state.nameFilter.toLowerCase())
+        )
+        .filter((item) =>
+          item.category
+            .toLowerCase()
+            .includes(state.categoryFilter.toLowerCase())
+        );
     },
     searchItemCategory(state, action: PayloadAction<string>) {
-      console.log(action.payload);
       state.categoryFilter = action.payload;
-      state.filteredItems = state.queryItems.filter((item) =>
-        item.category.toLowerCase().includes(state.categoryFilter.toLowerCase())
-      );
+      state.filteredItems = state.queryItems
+        .filter((item) =>
+          item.category
+            .toLowerCase()
+            .includes(state.categoryFilter.toLowerCase())
+        )
+        .filter((item) =>
+          item.name.toLowerCase().includes(state.nameFilter.toLowerCase())
+        );
     },
     clearCart(state) {
       state.items = [];

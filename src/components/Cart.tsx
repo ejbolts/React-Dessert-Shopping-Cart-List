@@ -8,7 +8,7 @@ export default function Cart() {
   const cart = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
   return (
-    <div className="bg-white w-1/2 max-md:min-w-full rounded-md mr-10 p-4 pb-6  place-self-start mt-24 ">
+    <div className="bg-white w-1/2 max-md:min-w-full rounded-md  max-md:mr-0 p-4 pb-6  place-self-start mt-24 ">
       <h2 className="text-orange text-2xl font-extrabold">
         Your Cart ({`${cart.totalItems}`})
       </h2>

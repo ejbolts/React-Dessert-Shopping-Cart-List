@@ -52,7 +52,7 @@ export default function DropDownMenu() {
   return (
     <div className="relative flex flex-col ml-auto" ref={dropdownRef}>
       <button
-        className={`flex items-center bg-orange p-3 text-white font-semibold rounded-md`}
+        className={`flex items-center bg-orange hover:bg-orangeHover p-3 text-white font-semibold rounded-md ease-linear duration-200`}
         type="button"
         onClick={() => setIsOpen((prevState) => !prevState)}
       >
@@ -78,7 +78,9 @@ export default function DropDownMenu() {
           {categories.map((category) => (
             <button
               key={category}
-              className={`text-left pl-6 py-2 pr-16 hover:bg-gray-100`}
+              className={`text-left pl-6 py-2 pr-16 hover:bg-gray-100 ${
+                activeCategory === category ? "bg-gray-100" : ""
+              }`}
               onClick={() => handleCategoryClick(category)}
             >
               {category}
