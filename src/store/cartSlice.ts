@@ -21,6 +21,10 @@ export interface CartState {
   totalCost: number;
   totalItems: number;
   isOpen: boolean;
+  queryItems: CartItem[];
+  filteredItems: CartItem[];
+  nameFilter: string;
+  categoryFilter: string;
 }
 
 const initialState: CartState = {
@@ -28,6 +32,10 @@ const initialState: CartState = {
   totalCost: 0,
   totalItems: 0,
   isOpen: false,
+  queryItems: [],
+  filteredItems: [],
+  nameFilter: "",
+  categoryFilter: "",
 };
 
 const cartSlice = createSlice({
@@ -63,6 +71,23 @@ const cartSlice = createSlice({
         state.totalItems--;
       }
     },
+    setItems(state, action: PayloadAction<CartItem[]>) {
+      state.queryItems = action.payload;
+      state.filteredItems = action.payload;
+    },
+    searchItemName(state, action: PayloadAction<string>) {
+      state.nameFilter = action.payload;
+      state.filteredItems = state.queryItems.filter((item) =>
+        item.name.toLowerCase().includes(state.nameFilter.toLowerCase())
+      );
+    },
+    searchItemCategory(state, action: PayloadAction<string>) {
+      console.log(action.payload);
+      state.categoryFilter = action.payload;
+      state.filteredItems = state.queryItems.filter((item) =>
+        item.category.toLowerCase().includes(state.categoryFilter.toLowerCase())
+      );
+    },
     clearCart(state) {
       state.items = [];
       state.totalCost = 0;
@@ -82,6 +107,9 @@ export const {
   removeItemFromCart,
   openModal,
   closeModal,
+  setItems,
+  searchItemName,
+  searchItemCategory,
   clearCart,
 } = cartSlice.actions;
 export default cartSlice.reducer;

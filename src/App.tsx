@@ -15,7 +15,7 @@ export default function App() {
   return (
     <div className="bg-lightBG min-h-screen ">
       <Header />
-      <div className="flex justify-between max-md:flex-wrap p-7">
+      <div className="flex justify-between max-md:flex-wrap p-7 ">
         <FoodList />
         <Cart />
       </div>

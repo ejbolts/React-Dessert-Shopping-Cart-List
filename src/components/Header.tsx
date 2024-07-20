@@ -1,8 +1,9 @@
 import React from "react";
 import profilePic from "../assets/images/cat_pf.png";
+import Search from "./Search";
 export default function Header() {
   return (
-    <div className="flex justify-between pt-14 px-14 flex-wrap items-end  pb-6 ">
+    <div className="flex justify-between pt-14 px-20 max-md:px-16  flex-wrap items-end  ">
       <h1 className="font-extrabold text-4xl mr-6 2xl:text-5xl max-md:text-5xl">
         Desserts
       </h1>

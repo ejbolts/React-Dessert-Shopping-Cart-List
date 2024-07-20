@@ -25,10 +25,10 @@ export default function Button({ food }: ButtonProps) {
             currentStateFood.isActive
               ? "bg-orange border-orange text-white"
               : "bg-white border-gray-300 "
-          } p-2  border-solid border-2 rounded-full w-[167px] flex items-center justify-center relative -mt-5 text-stone-800  hover:border-orange ease-linear duration-200`}
+          } p-2  shadow-md border-solid border-2 rounded-full w-[167px] flex items-center justify-center relative -mt-5 text-stone-800  hover:border-orange ease-linear duration-200`}
         >
           <button
-            className="bg-white rounded-full hover:bg-orange ease-linear duration-200"
+            className="bg-white rounded-full  hover:bg-orange ease-linear duration-200 "
             onClick={() => dispatch(removeItemFromCart(currentStateFood.id))}
           >
             <svg
@@ -68,7 +68,7 @@ export default function Button({ food }: ButtonProps) {
             currentStateFood.isActive
               ? "bg-orange border-orange text-white"
               : "bg-white border-gray-300 "
-          } p-2 px-6 border-solid border-2 rounded-full  flex items-center justify-center relative -mt-5 text-stone-800 hover:text-orange hover:border-orange ease-linear duration-200`}
+          } p-2  shadow-md px-6 border-solid border-2 rounded-full  flex items-center justify-center relative -mt-5 text-stone-800 hover:text-orange hover:border-orange ease-linear duration-200`}
           onClick={() => dispatch(addItemToCart(food))}
         >
           <svg
@@ -86,7 +86,7 @@ export default function Button({ food }: ButtonProps) {
               <path fill="#fff" d="M.333 0h20v20h-20z" />
             </defs>
           </svg>
-          <span className="font-semibold pl-2 "> Add to Cart</span>
+          <span className="font-semibold pl-2"> Add to Cart</span>
         </button>
       )}
     </>
