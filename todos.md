@@ -2,7 +2,7 @@
 
 add in clear all button - done
 Dark mode
-real time search (name) and filter (category)
+real time search (name) and filter (category) - done
 user display pic with name - done
 confirm and close of modal cart fixed button on bottom of screen mobile display for better UX - done
-checkout form details on module before confirmed order
+checkout form details on module before confirmed order - done

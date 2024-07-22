@@ -20,7 +20,11 @@ export interface CartState {
   items: CartItem[];
   totalCost: number;
   totalItems: number;
-  isOpen: boolean;
+  modalType: {
+    signInForm: boolean;
+    cartFormDetail: boolean;
+    cartConfirmOrder: boolean;
+  };
   queryItems: CartItem[];
   filteredItems: CartItem[];
   nameFilter: string;
@@ -31,7 +35,11 @@ const initialState: CartState = {
   items: [],
   totalCost: 0,
   totalItems: 0,
-  isOpen: false,
+  modalType: {
+    signInForm: false,
+    cartFormDetail: false,
+    cartConfirmOrder: false,
+  },
   queryItems: [],
   filteredItems: [],
   nameFilter: "",
@@ -104,11 +112,17 @@ const cartSlice = createSlice({
       state.totalCost = 0;
       state.totalItems = 0;
     },
-    openModal(state) {
-      state.isOpen = true;
+    openCartModal(state) {
+      state.modalType.cartFormDetail = true;
+      state.modalType.cartConfirmOrder = false;
     },
-    closeModal(state) {
-      state.isOpen = false;
+    switchCartModal(state) {
+      state.modalType.cartFormDetail = false;
+      state.modalType.cartConfirmOrder = true;
+    },
+    closeCartModal(state) {
+      state.modalType.cartFormDetail = false;
+      state.modalType.cartConfirmOrder = false;
     },
   },
 });
@@ -116,8 +130,9 @@ const cartSlice = createSlice({
 export const {
   addItemToCart,
   removeItemFromCart,
-  openModal,
-  closeModal,
+  openCartModal,
+  switchCartModal,
+  closeCartModal,
   setItems,
   searchItemName,
   searchItemCategory,

@@ -1,0 +1,159 @@
+import React, { useState } from "react";
+import Modal from "../UI/Modal";
+import { useDispatch } from "react-redux";
+import { closeCartModal, switchCartModal } from "../store/cartSlice";
+import CartList from "./CartList";
+
+export default function CartFormDetail() {
+  const dispatch = useDispatch();
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    address: "",
+    notes: "",
+  });
+  function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const fd = new FormData(event.target as HTMLFormElement);
+    const data = Object.fromEntries(fd.entries());
+    const validationErrors = validateForm(data);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors as React.SetStateAction<typeof errors>);
+      return;
+    }
+    setErrors({
+      firstName: "",
+      lastName: "",
+      email: "",
+      address: "",
+      notes: "",
+    });
+    console.log(data);
+    dispatch(switchCartModal());
+  }
+
+  function validateForm(data: Record<string, FormDataEntryValue>) {
+    const errors: Record<string, string> = {};
+    if (
+      !data.firstName ||
+      typeof data.firstName !== "string" ||
+      data.firstName.trim() === ""
+    ) {
+      errors.firstName = "First name is required";
+    }
+    if (
+      !data.lastName ||
+      typeof data.lastName !== "string" ||
+      data.lastName.trim() === ""
+    ) {
+      errors.lastName = "Last name is required";
+    }
+    if (
+      !data.email ||
+      typeof data.email !== "string" ||
+      !/\S+@\S+\.\S+/.test(data.email)
+    ) {
+      errors.email = "A valid email is required";
+    }
+    if (
+      !data.address ||
+      typeof data.address !== "string" ||
+      data.address.trim() === ""
+    ) {
+      errors.address = "Address is required";
+    }
+    return errors;
+  }
+  return (
+    <Modal>
+      <div className="my-6 mx-2">
+        <svg viewBox="0 0 1024 1024" fill="currentColor" width="48" height="48">
+          <path
+            fill="#0E86D4"
+            d="M904 512h-56c-4.4 0-8 3.6-8 8v320H184V184h320c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V520c0-4.4-3.6-8-8-8z"
+          />
+          <path
+            fill="#0E86D4"
+            d="M355.9 534.9L354 653.8c-.1 8.9 7.1 16.2 16 16.2h.4l118-2.9c2-.1 4-.9 5.4-2.3l415.9-415c3.1-3.1 3.1-8.2 0-11.3L785.4 114.3c-1.6-1.6-3.6-2.3-5.7-2.3s-4.1.8-5.7 2.3l-415.8 415a8.3 8.3 0 00-2.3 5.6zm63.5 23.6L779.7 199l45.2 45.1-360.5 359.7-45.7 1.1.7-46.4z"
+          />
+        </svg>
+
+        <h2 className="font-extrabold text-4xl mt-6">Enter Details</h2>
+        <p className="text-stone-500 my-1">
+          Please fill out to complete your order.
+        </p>
+        <form onSubmit={handleFormSubmit}>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="firstName" className="font-semibold">
+              First Name
+            </label>
+            <input
+              className="border border-gray-200 rounded-md bg-slate-100 pl-2"
+              type="text"
+              name="firstName"
+              id="firstName"
+              required
+            />
+            {errors.firstName && (
+              <span className="text-red-500">{errors.firstName}</span>
+            )}
+            <label htmlFor="lastName" className="font-semibold">
+              last Name
+            </label>
+            <input
+              className="border border-gray-200 rounded-md bg-slate-100 pl-2"
+              type="text"
+              name="lastName"
+              id="lastName"
+              required
+            />
+            {errors.lastName && (
+              <span className="text-red-500">{errors.lastName}</span>
+            )}
+            <label htmlFor="email" className="font-semibold">
+              Email
+            </label>
+            <input
+              className="border border-gray-200 rounded-md bg-slate-100 pl-2"
+              type="email"
+              name="email"
+              id="email"
+              required
+            />
+            {errors.email && (
+              <span className="text-red-500">{errors.email}</span>
+            )}
+            <label htmlFor="address" className="font-semibold">
+              Address
+            </label>
+            <input
+              className="border border-gray-200 rounded-md bg-slate-100 pl-2"
+              type="text"
+              name="address"
+              id="address"
+              required
+            />
+            {errors.address && (
+              <span className="text-red-500">{errors.address}</span>
+            )}
+            <label htmlFor="notes" className="font-semibold">
+              Notes
+            </label>
+            <textarea
+              className="border border-gray-200 rounded-md bg-slate-100 pl-2"
+              name="notes"
+              id="notes"
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            className={`mt-4 p-3 w-full font-semibold rounded-full  flex items-center justify-center relative  text-white bg-orange hover:bg-orangeHover  ease-linear duration-200`}
+          >
+            Progress to Checkout
+          </button>
+        </form>
+      </div>
+    </Modal>
+  );
+}

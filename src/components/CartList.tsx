@@ -14,7 +14,7 @@ export default function CartList({ isModal }: CartListProp) {
     <>
       <ul
         className={`${
-          isModal ? "bg-lightBG rounded-t-md mt-8 px-4 " : "bg-white"
+          isModal ? "bg-lightBG rounded-t-md mt-4 px-4 " : "bg-white"
         } py-2 `}
       >
         {cart.items.map((food) => {

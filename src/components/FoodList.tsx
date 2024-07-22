@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 
 export default function FoodList() {
   const cart = useSelector((state: RootState) => state.cart);
-  const { data: foods } = useQuery({
+  const { data: foods, isLoading } = useQuery({
     queryKey: ["foods"],
     queryFn: fetchFoods,
   });
@@ -68,16 +68,20 @@ export default function FoodList() {
         </div>
       ) : (
         <div className="items-center gap-4 max-md:mx-16 mb-10 h-full max-md:mb-30 w-full grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
-          <div className="flex flex-col items-center w-full max-w-[500px]  ">
-            <img
-              className="rounded-t-lg w-full object-contain "
-              src={notFound}
-              alt="item not found"
-            />
-            <span className="text-stone-500 max-w-fit rounded-b-lg p-1 text-xl pb-6 text-center font-semibold bg-white min-w-full">
-              Sorry, no foods found
-            </span>
-          </div>
+          {isLoading ? (
+            <span>Fetching foods please wait...</span>
+          ) : (
+            <div className="flex flex-col items-center w-full max-w-[500px]  ">
+              <img
+                className="rounded-t-lg w-full object-contain "
+                src={notFound}
+                alt="item not found"
+              />
+              <span className="text-stone-500 max-w-fit rounded-b-lg p-1 text-xl pb-6 text-center font-semibold bg-white min-w-full">
+                Sorry, no foods found
+              </span>
+            </div>
+          )}
         </div>
       )}
     </div>

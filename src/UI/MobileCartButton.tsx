@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { openModal } from "../store/cartSlice";
+import { openCartModal } from "../store/cartSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
@@ -36,7 +36,7 @@ export default function MobileCartButton() {
         Total: ${cart.totalCost.toFixed(2)}
       </span>
       <button
-        onClick={() => dispatch(openModal())}
+        onClick={() => dispatch(openCartModal())}
         disabled={cart.totalItems < 1}
         className={`mt-4 p-3 w-full font-semibold rounded-full flex items-center justify-center relative text-white bg-orange hover:bg-orangeHover ease-linear duration-200 ${
           cart.totalItems < 1 ? "opacity-50 cursor-not-allowed" : ""

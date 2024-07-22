@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { useDispatch } from "react-redux";
-import { openModal } from "../store/cartSlice";
+import { openCartModal } from "../store/cartSlice";
 import CartList from "./CartList";
 export default function Cart() {
   const cart = useSelector((state: RootState) => state.cart);
@@ -106,7 +106,7 @@ export default function Cart() {
           </div>
 
           <button
-            onClick={() => dispatch(openModal())}
+            onClick={() => dispatch(openCartModal())}
             className={`mt-4 p-3  md:px-6 w-full  mx-auto font-semibold rounded-full  flex items-center justify-center relative  text-white bg-orange hover:bg-orangeHover  ease-linear duration-200`}
           >
             Confirm Order
