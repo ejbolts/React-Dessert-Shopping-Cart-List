@@ -2,9 +2,15 @@ import React from "react";
 import Modal from "../UI/Modal";
 import { useDispatch } from "react-redux";
 import { closeCartModal } from "../store/cartSlice";
-import CartList from "./CartList";
 
-export default function ConfirmOrder() {
+interface SignInFormProps {
+  userName: string;
+  handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+export default function SignInForm({
+  userName,
+  handleChange,
+}: SignInFormProps) {
   const dispatch = useDispatch();
   return (
     <Modal>
@@ -27,17 +33,33 @@ export default function ConfirmOrder() {
         </svg>
 
         <h2 className="font-extrabold text-4xl mt-6 dark:text-white">
-          Order Confirmed
+          Profile Details
         </h2>
         <p className="text-stone-500 mt-2 dark:text-stone-400">
-          We hope you enjoy your food!
+          You are already signed in!
         </p>
-        <CartList isModal={true} />
+        <div className="flex flex-col py-2">
+          <label
+            htmlFor="firstName"
+            className="font-semibold dark:text-white py-2"
+          >
+            UserName
+          </label>
+          <input
+            className="border border-gray-200 rounded-md bg-slate-100 pl-2 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
+            value={userName}
+            onChange={handleChange}
+            type="text"
+            name="firstName"
+            id="firstName"
+            required
+          />
+        </div>
         <button
           onClick={() => dispatch(closeCartModal())}
           className={`mt-4 p-3 w-full font-semibold rounded-full  flex items-center justify-center relative  text-white bg-orange hover:bg-orangeHover  ease-linear duration-200`}
         >
-          Start New Order
+          close
         </button>
       </div>
     </Modal>

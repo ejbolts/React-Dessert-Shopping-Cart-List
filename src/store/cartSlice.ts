@@ -112,17 +112,25 @@ const cartSlice = createSlice({
       state.totalCost = 0;
       state.totalItems = 0;
     },
-    openCartModal(state) {
+    openCartFormDetail(state) {
       state.modalType.cartFormDetail = true;
       state.modalType.cartConfirmOrder = false;
+      state.modalType.signInForm = false;
     },
-    switchCartModal(state) {
+    openCartConfirmOrder(state) {
       state.modalType.cartFormDetail = false;
       state.modalType.cartConfirmOrder = true;
+      state.modalType.signInForm = false;
+    },
+    openSignInForm(state) {
+      state.modalType.cartFormDetail = false;
+      state.modalType.cartConfirmOrder = false;
+      state.modalType.signInForm = true;
     },
     closeCartModal(state) {
       state.modalType.cartFormDetail = false;
       state.modalType.cartConfirmOrder = false;
+      state.modalType.signInForm = false;
     },
   },
 });
@@ -130,8 +138,9 @@ const cartSlice = createSlice({
 export const {
   addItemToCart,
   removeItemFromCart,
-  openCartModal,
-  switchCartModal,
+  openCartFormDetail,
+  openCartConfirmOrder,
+  openSignInForm,
   closeCartModal,
   setItems,
   searchItemName,

@@ -12,7 +12,8 @@ const Modal: React.FC<ModalProps> = ({ children }) => {
   const isCartOpen = useSelector(
     (state: RootState) =>
       state.cart.modalType.cartFormDetail ||
-      state.cart.modalType.cartConfirmOrder
+      state.cart.modalType.cartConfirmOrder ||
+      state.cart.modalType.signInForm
   );
   const dispatch = useDispatch();
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -40,8 +41,8 @@ const Modal: React.FC<ModalProps> = ({ children }) => {
   return ReactDOM.createPortal(
     <dialog
       ref={dialogRef}
-      className="modal-dialog rounded-xl md:w-[500px] max-md:mx-0 max-md:mb-0 px-8 max-md:min-w-full "
-      onClick={() => dispatch(closeCartModal())} // this needs changing
+      className="modal-dialog rounded-xl md:w-[500px] max-md:mx-0 max-md:mb-0 px-8 max-md:min-w-full dark:bg-stone-950 "
+      onClick={() => dispatch(closeCartModal())}
     >
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {children}

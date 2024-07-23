@@ -8,7 +8,7 @@
       "desktop": "./src/assets/images/image-waffle-desktop.jpg"
     },
     "name": "Waffle with Berries",
-    "category": "Waffle",
+    "category": "Pastries",
     "price": 6.5
   },
   {
@@ -20,7 +20,7 @@
       "desktop": "./src/assets/images/image-creme-brulee-desktop.jpg"
     },
     "name": "Vanilla Bean Crème Brûlée",
-    "category": "Crème Brûlée",
+    "category": "Puddings",
     "price": 7.0
   },
   {
@@ -32,7 +32,7 @@
       "desktop": "./src/assets/images/image-macaron-desktop.jpg"
     },
     "name": "Macaron Mix of Five",
-    "category": "Macaron",
+    "category": "Cookies",
     "price": 8.0
   },
   {
@@ -44,7 +44,7 @@
       "desktop": "./src/assets/images/image-tiramisu-desktop.jpg"
     },
     "name": "Classic Tiramisu",
-    "category": "Tiramisu",
+    "category": "Cakes",
     "price": 5.5
   },
   {
@@ -56,7 +56,7 @@
       "desktop": "./src/assets/images/image-baklava-desktop.jpg"
     },
     "name": "Pistachio Baklava",
-    "category": "Baklava",
+    "category": "Pastries",
     "price": 4.0
   },
   {
@@ -68,7 +68,7 @@
       "desktop": "./src/assets/images/image-meringue-desktop.jpg"
     },
     "name": "Lemon Meringue Pie",
-    "category": "Pie",
+    "category": "Pies",
     "price": 5.0
   },
   {
@@ -80,7 +80,7 @@
       "desktop": "./src/assets/images/image-cake-desktop.jpg"
     },
     "name": "Red Velvet Cake",
-    "category": "Cake",
+    "category": "Cakes",
     "price": 4.5
   },
   {
@@ -92,7 +92,7 @@
       "desktop": "./src/assets/images/image-brownie-desktop.jpg"
     },
     "name": "Salted Caramel Brownie",
-    "category": "Brownie",
+    "category": "Cakes",
     "price": 4.5
   },
   {
@@ -104,7 +104,95 @@
       "desktop": "./src/assets/images/image-panna-cotta-desktop.jpg"
     },
     "name": "Vanilla Panna Cotta",
-    "category": "Panna Cotta",
+    "category": "Puddings",
     "price": 6.5
+  },
+  {
+    "id": 10,
+    "image": {
+      "thumbnail": "./src/assets/images/Caramel-Crunch-Delight.webp",
+      "mobile": "./src/assets/images/Caramel-Crunch-Delight-mobile.webp",
+      "desktop": "./src/assets/images/Caramel-Crunch-Delight.webp"
+    },
+    "name": "Caramel Crunch Delight",
+    "category": "Candy",
+    "price": 4.99
+  },
+  {
+    "id": 11,
+    "image": {
+      "thumbnail": "./src/assets/images/Berry-Bliss-Bites.webp",
+      "mobile": "./src/assets/images/Berry-Bliss-Bites-mobile.webp",
+      "desktop": "./src/assets/images/Berry-Bliss-Bites.webp"
+    },
+    "name": "Berry Bliss Bites",
+    "category": "Candy",
+    "price": 5.49
+  },
+  {
+    "id": 12,
+    "image": {
+      "thumbnail": "./src/assets/images/vanilla-ice-cream-rainbow.png",
+      "mobile": "./src/assets/images/vanilla-ice-cream-rainbow-mobile.webp",
+      "desktop": "./src/assets/images/vanilla-ice-cream-rainbow.png"
+    },
+    "name": "Vanilla Ice Cream Rainbow",
+    "category": "Ice cream",
+    "price": 3.99
+  },
+  {
+    "id": 13,
+    "image": {
+      "thumbnail": "./src/assets/images/Galaxy-Swirl-Sundae.png",
+      "mobile": "./src/assets/images/Galaxy-Swirl-Sundae-mobile.webp",
+      "desktop": "./src/assets/images/Galaxy-Swirl-Sundae.png"
+    },
+    "name": "Galaxy Swirl Sundae",
+    "category": "Ice cream",
+    "price": 6.99
+  },
+  {
+    "id": 14,
+    "image": {
+      "thumbnail": "./src/assets/images/French-Silk-Pie.png",
+      "mobile": "./src/assets/images/French-Silk-Pie-mobile.webp",
+      "desktop": "./src/assets/images/French-Silk-Pie.png"
+    },
+    "name": "French Silk Pie",
+    "category": "Pies",
+    "price": 7.49
+  },
+  {
+    "id": 15,
+    "image": {
+      "thumbnail": "./src/assets/images/Triple-Chocolate-Delight-Cookies.png",
+      "mobile": "./src/assets/images/Triple-Chocolate-Delight-Cookies-mobile.webp",
+      "desktop": "./src/assets/images/Triple-Chocolate-Delight-Cookies.png"
+    },
+    "name": "Triple Chocolate Delight Cookies",
+    "category": "Cookies",
+    "price": 4.49
+  },
+  {
+    "id": 16,
+    "image": {
+      "thumbnail": "./src/assets/images/Tropical-Dream-Ice-Cream.png",
+      "mobile": "./src/assets/images/Tropical-Dream-Ice-Cream-mobile.webp",
+      "desktop": "./src/assets/images/Tropical-Dream-Ice-Cream.png"
+    },
+    "name": "Tropical Dream Ice Cream",
+    "category": "Ice cream",
+    "price": 5.99
+  },
+  {
+    "id": 17,
+    "image": {
+      "thumbnail": "./src/assets/images/Chocolate-Hazelnut-Heaven.png",
+      "mobile": "./src/assets/images/Chocolate-Hazelnut-Heaven-mobile.webp",
+      "desktop": "./src/assets/images/Chocolate-Hazelnut-Heaven.png"
+    },
+    "name": "Chocolate Hazelnut Heaven",
+    "category": "Cakes",
+    "price": 6.49
   }
 ]

@@ -9,15 +9,13 @@ export default function DropDownMenu() {
   const cart = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
   const categories = [
-    "Waffle",
-    "Crème Brûlée",
-    "Macaron",
-    "Tiramisu",
-    "Baklava",
-    "Pie",
-    "Cake",
-    "Brownie",
-    "Panna Cotta",
+    "Cakes",
+    "Cookies",
+    "Pies",
+    "Ice cream",
+    "Pastries",
+    "Puddings",
+    "Candy",
   ];
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -73,13 +71,15 @@ export default function DropDownMenu() {
       </button>
       {isOpen && (
         <div
-          className={`flex flex-col shadow-md rounded mt-14 py-2 absolute z-10 bg-white`}
+          className={`flex flex-col shadow-md rounded mt-14 py-2 absolute z-10 bg-white dark:text-white dark:bg-stone-950`}
         >
           {categories.map((category) => (
             <button
               key={category}
-              className={`text-left pl-6 py-2 pr-16 hover:bg-gray-100 ${
-                activeCategory === category ? "bg-gray-100" : ""
+              className={`text-left pl-6 py-2 pr-16 hover:bg-gray-100 dark:hover:bg-stone-800${
+                activeCategory === category
+                  ? "bg-gray-100 dark:bg-stone-800  "
+                  : ""
               }`}
               onClick={() => handleCategoryClick(category)}
             >

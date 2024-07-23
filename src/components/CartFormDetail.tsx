@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../UI/Modal";
 import { useDispatch } from "react-redux";
-import { closeCartModal, switchCartModal } from "../store/cartSlice";
-import CartList from "./CartList";
+import { openCartConfirmOrder } from "../store/cartSlice";
 
 export default function CartFormDetail() {
   const dispatch = useDispatch();
@@ -30,7 +29,7 @@ export default function CartFormDetail() {
       notes: "",
     });
     console.log(data);
-    dispatch(switchCartModal());
+    dispatch(openCartConfirmOrder());
   }
 
   function validateForm(data: Record<string, FormDataEntryValue>) {
@@ -79,17 +78,22 @@ export default function CartFormDetail() {
           />
         </svg>
 
-        <h2 className="font-extrabold text-4xl mt-6">Enter Details</h2>
-        <p className="text-stone-500 my-1">
+        <h2 className="font-extrabold text-4xl mt-6 dark:text-white">
+          Enter Details
+        </h2>
+        <p className="text-stone-500 my-1 dark:text-stone-400">
           Please fill out to complete your order.
         </p>
         <form onSubmit={handleFormSubmit}>
           <div className="flex flex-col gap-2">
-            <label htmlFor="firstName" className="font-semibold">
+            <label
+              htmlFor="firstName"
+              className="font-semibold dark:text-white"
+            >
               First Name
             </label>
             <input
-              className="border border-gray-200 rounded-md bg-slate-100 pl-2"
+              className="border border-gray-200 rounded-md bg-slate-100 pl-2 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
               type="text"
               name="firstName"
               id="firstName"
@@ -98,11 +102,11 @@ export default function CartFormDetail() {
             {errors.firstName && (
               <span className="text-red-500">{errors.firstName}</span>
             )}
-            <label htmlFor="lastName" className="font-semibold">
+            <label htmlFor="lastName" className="font-semibold dark:text-white">
               last Name
             </label>
             <input
-              className="border border-gray-200 rounded-md bg-slate-100 pl-2"
+              className="border border-gray-200 rounded-md bg-slate-100 pl-2 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
               type="text"
               name="lastName"
               id="lastName"
@@ -111,11 +115,11 @@ export default function CartFormDetail() {
             {errors.lastName && (
               <span className="text-red-500">{errors.lastName}</span>
             )}
-            <label htmlFor="email" className="font-semibold">
+            <label htmlFor="email" className="font-semibold dark:text-white">
               Email
             </label>
             <input
-              className="border border-gray-200 rounded-md bg-slate-100 pl-2"
+              className="border border-gray-200 rounded-md bg-slate-100 pl-2 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
               type="email"
               name="email"
               id="email"
@@ -124,11 +128,11 @@ export default function CartFormDetail() {
             {errors.email && (
               <span className="text-red-500">{errors.email}</span>
             )}
-            <label htmlFor="address" className="font-semibold">
+            <label htmlFor="address" className="font-semibold dark:text-white">
               Address
             </label>
             <input
-              className="border border-gray-200 rounded-md bg-slate-100 pl-2"
+              className="border border-gray-200 rounded-md bg-slate-100 pl-2 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
               type="text"
               name="address"
               id="address"
@@ -137,11 +141,11 @@ export default function CartFormDetail() {
             {errors.address && (
               <span className="text-red-500">{errors.address}</span>
             )}
-            <label htmlFor="notes" className="font-semibold">
+            <label htmlFor="notes" className="font-semibold dark:text-white">
               Notes
             </label>
             <textarea
-              className="border border-gray-200 rounded-md bg-slate-100 pl-2"
+              className="border border-gray-200 rounded-md bg-slate-100 pl-2 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
               name="notes"
               id="notes"
             ></textarea>
