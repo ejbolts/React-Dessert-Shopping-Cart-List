@@ -1,4 +1,4 @@
-import profilePic from "../assets/images/cat_pf.png";
+import profilePic from "../assets/cat_pf.png";
 import { useDispatch } from "react-redux";
 import { RootState } from "../store/store";
 import { useSelector } from "react-redux";

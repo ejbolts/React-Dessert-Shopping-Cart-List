@@ -1,8 +1,8 @@
 import { CartItem, setItems } from "../store/cartSlice";
 import { useQuery } from "@tanstack/react-query";
 import { fetchFoods } from "../util/http";
-import notFound from "../assets/images/sad-cake.jpg";
-import notFoundDarkMode from "../assets/images/sad-cake-darkMode.png";
+import notFound from "../assets/sad-cake.jpg";
+import notFoundDarkMode from "../assets/sad-cake-darkMode.png";
 import Button from "../UI/Button";
 import { RootState } from "../store/store";
 import { useSelector } from "react-redux";
