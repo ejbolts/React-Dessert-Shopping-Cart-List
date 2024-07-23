@@ -1,30 +1,41 @@
-# React + TypeScript + Vite
+# React-Dessert-Shopping-Cart-List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My solution to the FrontEnd Mentor Product list with cart project. 
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [Screenshots](#screenshots)
+  - [Live Site](#site)
+- [Features](#features)
+  - [Built with](#built-with)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Overview
 
-- Configure the top-level `parserOptions` property like this:
+### Screenshots
+![react dessert shopping cart list multidisplay](https://github.com/user-attachments/assets/941dfeae-0fbe-4b76-8320-75f6023f2edf)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+![react dessert shopping cart list darkMode](https://github.com/user-attachments/assets/94f21aa4-4db9-44fa-a732-6f48bfd36d41)
+
+
+![react dessert shopping cart list mobile form darkMode](https://github.com/user-attachments/assets/7ef6cf4b-8479-4bc6-bf45-4f79dd2774d9)
+
+
+### Site
+
+- Live Site URL: https://ejbolts.github.io/product-list-with-cart-main/
+
+## Features
+
+- Filter and search for desserts  
+- Toggle between light and dark themes
+- Display modals for detail form, cart and user profile
+
+### Built with
+
+- React
+- Tailwind CSS
+- TanStack/React Query
+- Redux
