@@ -4,7 +4,9 @@ import { CartItem } from "../store/cartSlice";
 export const queryClient = new QueryClient();
 
 export async function fetchFoods({ signal }: { signal: AbortSignal }) {
-  const response = await fetch("../../data.json", { signal: signal });
+  const response = await fetch("/product-list-with-cart-main/data.json", {
+    signal: signal,
+  });
 
   if (!response.ok) {
     const error = new Error("An error occurred while fetching the events");
