@@ -25,7 +25,8 @@ My solution to the FrontEnd Mentor Product list with cart project.
 
 ### Site
 
-- Live Site URL: https://ejbolts.github.io/product-list-with-cart-main/
+- Live Site URL: https://ejbolts.github.io/React-Dessert-Shopping-Cart-List
+
 
 ## Features
 
