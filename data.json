@@ -2,10 +2,10 @@
   {
     "id": 1,
     "image": {
-      "thumbnail": "./src/assets/images/image-waffle-thumbnail.jpg",
-      "mobile": "./src/assets/images/image-waffle-mobile.jpg",
-      "tablet": "./src/assets/images/image-waffle-tablet.jpg",
-      "desktop": "./src/assets/images/image-waffle-desktop.jpg"
+      "thumbnail": "./assets/images/image-waffle-thumbnail.jpg",
+      "mobile": "./assets/images/image-waffle-mobile.jpg",
+      "tablet": "./assets/images/image-waffle-tablet.jpg",
+      "desktop": "./assets/images/image-waffle-desktop.jpg"
     },
     "name": "Waffle with Berries",
     "category": "Pastries",
@@ -14,10 +14,10 @@
   {
     "id": 2,
     "image": {
-      "thumbnail": "./src/assets/images/image-creme-brulee-thumbnail.jpg",
-      "mobile": "./src/assets/images/image-creme-brulee-mobile.jpg",
-      "tablet": "./src/assets/images/image-creme-brulee-tablet.jpg",
-      "desktop": "./src/assets/images/image-creme-brulee-desktop.jpg"
+      "thumbnail": "./assets/images/image-creme-brulee-thumbnail.jpg",
+      "mobile": "./assets/images/image-creme-brulee-mobile.jpg",
+      "tablet": "./assets/images/image-creme-brulee-tablet.jpg",
+      "desktop": "./assets/images/image-creme-brulee-desktop.jpg"
     },
     "name": "Vanilla Bean Crème Brûlée",
     "category": "Puddings",
@@ -26,10 +26,10 @@
   {
     "id": 3,
     "image": {
-      "thumbnail": "./src/assets/images/image-macaron-thumbnail.jpg",
-      "mobile": "./src/assets/images/image-macaron-mobile.jpg",
-      "tablet": "./src/assets/images/image-macaron-tablet.jpg",
-      "desktop": "./src/assets/images/image-macaron-desktop.jpg"
+      "thumbnail": "./assets/images/image-macaron-thumbnail.jpg",
+      "mobile": "./assets/images/image-macaron-mobile.jpg",
+      "tablet": "./assets/images/image-macaron-tablet.jpg",
+      "desktop": "./assets/images/image-macaron-desktop.jpg"
     },
     "name": "Macaron Mix of Five",
     "category": "Cookies",
@@ -38,10 +38,10 @@
   {
     "id": 4,
     "image": {
-      "thumbnail": "./src/assets/images/image-tiramisu-thumbnail.jpg",
-      "mobile": "./src/assets/images/image-tiramisu-mobile.jpg",
-      "tablet": "./src/assets/images/image-tiramisu-tablet.jpg",
-      "desktop": "./src/assets/images/image-tiramisu-desktop.jpg"
+      "thumbnail": "./assets/images/image-tiramisu-thumbnail.jpg",
+      "mobile": "./assets/images/image-tiramisu-mobile.jpg",
+      "tablet": "./assets/images/image-tiramisu-tablet.jpg",
+      "desktop": "./assets/images/image-tiramisu-desktop.jpg"
     },
     "name": "Classic Tiramisu",
     "category": "Cakes",
@@ -50,10 +50,10 @@
   {
     "id": 5,
     "image": {
-      "thumbnail": "./src/assets/images/image-baklava-thumbnail.jpg",
-      "mobile": "./src/assets/images/image-baklava-mobile.jpg",
-      "tablet": "./src/assets/images/image-baklava-tablet.jpg",
-      "desktop": "./src/assets/images/image-baklava-desktop.jpg"
+      "thumbnail": "./assets/images/image-baklava-thumbnail.jpg",
+      "mobile": "./assets/images/image-baklava-mobile.jpg",
+      "tablet": "./assets/images/image-baklava-tablet.jpg",
+      "desktop": "./assets/images/image-baklava-desktop.jpg"
     },
     "name": "Pistachio Baklava",
     "category": "Pastries",
@@ -62,10 +62,10 @@
   {
     "id": 6,
     "image": {
-      "thumbnail": "./src/assets/images/image-meringue-thumbnail.jpg",
-      "mobile": "./src/assets/images/image-meringue-mobile.jpg",
-      "tablet": "./src/assets/images/image-meringue-tablet.jpg",
-      "desktop": "./src/assets/images/image-meringue-desktop.jpg"
+      "thumbnail": "./assets/images/image-meringue-thumbnail.jpg",
+      "mobile": "./assets/images/image-meringue-mobile.jpg",
+      "tablet": "./assets/images/image-meringue-tablet.jpg",
+      "desktop": "./assets/images/image-meringue-desktop.jpg"
     },
     "name": "Lemon Meringue Pie",
     "category": "Pies",
@@ -74,10 +74,10 @@
   {
     "id": 7,
     "image": {
-      "thumbnail": "./src/assets/images/image-cake-thumbnail.jpg",
-      "mobile": "./src/assets/images/image-cake-mobile.jpg",
-      "tablet": "./src/assets/images/image-cake-tablet.jpg",
-      "desktop": "./src/assets/images/image-cake-desktop.jpg"
+      "thumbnail": "./assets/images/image-cake-thumbnail.jpg",
+      "mobile": "./assets/images/image-cake-mobile.jpg",
+      "tablet": "./assets/images/image-cake-tablet.jpg",
+      "desktop": "./assets/images/image-cake-desktop.jpg"
     },
     "name": "Red Velvet Cake",
     "category": "Cakes",
@@ -86,10 +86,10 @@
   {
     "id": 8,
     "image": {
-      "thumbnail": "./src/assets/images/image-brownie-thumbnail.jpg",
-      "mobile": "./src/assets/images/image-brownie-mobile.jpg",
-      "tablet": "./src/assets/images/image-brownie-tablet.jpg",
-      "desktop": "./src/assets/images/image-brownie-desktop.jpg"
+      "thumbnail": "./assets/images/image-brownie-thumbnail.jpg",
+      "mobile": "./assets/images/image-brownie-mobile.jpg",
+      "tablet": "./assets/images/image-brownie-tablet.jpg",
+      "desktop": "./assets/images/image-brownie-desktop.jpg"
     },
     "name": "Salted Caramel Brownie",
     "category": "Cakes",
@@ -98,10 +98,10 @@
   {
     "id": 9,
     "image": {
-      "thumbnail": "./src/assets/images/image-panna-cotta-thumbnail.jpg",
-      "mobile": "./src/assets/images/image-panna-cotta-mobile.jpg",
-      "tablet": "./src/assets/images/image-panna-cotta-tablet.jpg",
-      "desktop": "./src/assets/images/image-panna-cotta-desktop.jpg"
+      "thumbnail": "./assets/images/image-panna-cotta-thumbnail.jpg",
+      "mobile": "./assets/images/image-panna-cotta-mobile.jpg",
+      "tablet": "./assets/images/image-panna-cotta-tablet.jpg",
+      "desktop": "./assets/images/image-panna-cotta-desktop.jpg"
     },
     "name": "Vanilla Panna Cotta",
     "category": "Puddings",
@@ -110,9 +110,9 @@
   {
     "id": 10,
     "image": {
-      "thumbnail": "./src/assets/images/Caramel-Crunch-Delight.webp",
-      "mobile": "./src/assets/images/Caramel-Crunch-Delight-mobile.webp",
-      "desktop": "./src/assets/images/Caramel-Crunch-Delight.webp"
+      "thumbnail": "./assets/images/Caramel-Crunch-Delight.webp",
+      "mobile": "./assets/images/Caramel-Crunch-Delight-mobile.webp",
+      "desktop": "./assets/images/Caramel-Crunch-Delight.webp"
     },
     "name": "Caramel Crunch Delight",
     "category": "Candy",
@@ -121,9 +121,9 @@
   {
     "id": 11,
     "image": {
-      "thumbnail": "./src/assets/images/Berry-Bliss-Bites.webp",
-      "mobile": "./src/assets/images/Berry-Bliss-Bites-mobile.webp",
-      "desktop": "./src/assets/images/Berry-Bliss-Bites.webp"
+      "thumbnail": "./assets/images/Berry-Bliss-Bites.webp",
+      "mobile": "./assets/images/Berry-Bliss-Bites-mobile.webp",
+      "desktop": "./assets/images/Berry-Bliss-Bites.webp"
     },
     "name": "Berry Bliss Bites",
     "category": "Candy",
@@ -132,9 +132,9 @@
   {
     "id": 12,
     "image": {
-      "thumbnail": "./src/assets/images/vanilla-ice-cream-rainbow.png",
-      "mobile": "./src/assets/images/vanilla-ice-cream-rainbow-mobile.webp",
-      "desktop": "./src/assets/images/vanilla-ice-cream-rainbow.png"
+      "thumbnail": "./assets/images/vanilla-ice-cream-rainbow.png",
+      "mobile": "./assets/images/vanilla-ice-cream-rainbow-mobile.webp",
+      "desktop": "./assets/images/vanilla-ice-cream-rainbow.png"
     },
     "name": "Vanilla Ice Cream Rainbow",
     "category": "Ice cream",
@@ -143,9 +143,9 @@
   {
     "id": 13,
     "image": {
-      "thumbnail": "./src/assets/images/Galaxy-Swirl-Sundae.png",
-      "mobile": "./src/assets/images/Galaxy-Swirl-Sundae-mobile.webp",
-      "desktop": "./src/assets/images/Galaxy-Swirl-Sundae.png"
+      "thumbnail": "./assets/images/Galaxy-Swirl-Sundae.png",
+      "mobile": "./assets/images/Galaxy-Swirl-Sundae-mobile.webp",
+      "desktop": "./assets/images/Galaxy-Swirl-Sundae.png"
     },
     "name": "Galaxy Swirl Sundae",
     "category": "Ice cream",
@@ -154,9 +154,9 @@
   {
     "id": 14,
     "image": {
-      "thumbnail": "./src/assets/images/French-Silk-Pie.png",
-      "mobile": "./src/assets/images/French-Silk-Pie-mobile.webp",
-      "desktop": "./src/assets/images/French-Silk-Pie.png"
+      "thumbnail": "./assets/images/French-Silk-Pie.png",
+      "mobile": "./assets/images/French-Silk-Pie-mobile.webp",
+      "desktop": "./assets/images/French-Silk-Pie.png"
     },
     "name": "French Silk Pie",
     "category": "Pies",
@@ -165,9 +165,9 @@
   {
     "id": 15,
     "image": {
-      "thumbnail": "./src/assets/images/Triple-Chocolate-Delight-Cookies.png",
-      "mobile": "./src/assets/images/Triple-Chocolate-Delight-Cookies-mobile.webp",
-      "desktop": "./src/assets/images/Triple-Chocolate-Delight-Cookies.png"
+      "thumbnail": "./assets/images/Triple-Chocolate-Delight-Cookies.png",
+      "mobile": "./assets/images/Triple-Chocolate-Delight-Cookies-mobile.webp",
+      "desktop": "./assets/images/Triple-Chocolate-Delight-Cookies.png"
     },
     "name": "Triple Chocolate Delight Cookies",
     "category": "Cookies",
@@ -176,9 +176,9 @@
   {
     "id": 16,
     "image": {
-      "thumbnail": "./src/assets/images/Tropical-Dream-Ice-Cream.png",
-      "mobile": "./src/assets/images/Tropical-Dream-Ice-Cream-mobile.webp",
-      "desktop": "./src/assets/images/Tropical-Dream-Ice-Cream.png"
+      "thumbnail": "./assets/images/Tropical-Dream-Ice-Cream.png",
+      "mobile": "./assets/images/Tropical-Dream-Ice-Cream-mobile.webp",
+      "desktop": "./assets/images/Tropical-Dream-Ice-Cream.png"
     },
     "name": "Tropical Dream Ice Cream",
     "category": "Ice cream",
@@ -187,9 +187,9 @@
   {
     "id": 17,
     "image": {
-      "thumbnail": "./src/assets/images/Chocolate-Hazelnut-Heaven.png",
-      "mobile": "./src/assets/images/Chocolate-Hazelnut-Heaven-mobile.webp",
-      "desktop": "./src/assets/images/Chocolate-Hazelnut-Heaven.png"
+      "thumbnail": "./assets/images/Chocolate-Hazelnut-Heaven.png",
+      "mobile": "./assets/images/Chocolate-Hazelnut-Heaven-mobile.webp",
+      "desktop": "./assets/images/Chocolate-Hazelnut-Heaven.png"
     },
     "name": "Chocolate Hazelnut Heaven",
     "category": "Cakes",
