@@ -1,9 +1,9 @@
 {
-  "name": "product-list-with-cart-main",
+  "name": "React-Dessert-Shopping-Cart-List",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://ejbolts.github.io/product-list-with-cart-main",
+  "homepage": "https://ejbolts.github.io/React-Dessert-Shopping-Cart-List",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

@@ -4,7 +4,7 @@ import { CartItem } from "../store/cartSlice";
 export const queryClient = new QueryClient();
 
 export async function fetchFoods({ signal }: { signal: AbortSignal }) {
-  const response = await fetch("/product-list-with-cart-main/data.json", {
+  const response = await fetch("/React-Dessert-Shopping-Cart-List/data.json", {
     signal: signal,
   });
 
