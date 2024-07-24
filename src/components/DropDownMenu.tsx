@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../store/store";
-import { searchItemCategory } from "../store/cartSlice";
+import { useState, useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { searchItemCategory } from "../store/uiSlice";
 
 export default function DropDownMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("");
-  const cart = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
   const categories = [
     "Cakes",
@@ -56,7 +54,7 @@ export default function DropDownMenu() {
       >
         {activeCategory === "" ? "Filter by Category" : activeCategory}
         <svg
-          className="ml-2 h-5 w-5"
+          className="w-5 h-5 ml-2"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"

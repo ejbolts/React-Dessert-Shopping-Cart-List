@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { openCartFormDetail } from "../store/cartSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import { openCartFormDetail } from "../store/uiSlice";
 
 export default function MobileCartButton() {
   const dispatch = useDispatch();
@@ -30,9 +30,9 @@ export default function MobileCartButton() {
   return (
     <div
       id="fixedElement"
-      className="md:hidden flex-col w-full px-10 fixed bottom-0 justify-center pt-4 py-6 items-center bg-white shadow-lg rounded-t-xl transition-opacity duration-300 dark:bg-stone-950"
+      className="fixed bottom-0 flex-col items-center justify-center w-full px-10 py-6 pt-4 transition-opacity duration-300 bg-white shadow-lg md:hidden rounded-t-xl dark:bg-stone-950"
     >
-      <span className="font-extrabold  text-stone-800 justify-center flex text-xl mb-3 dark:text-white">
+      <span className="flex justify-center mb-3 text-xl font-extrabold text-stone-800 dark:text-white">
         Total: ${cart.totalCost.toFixed(2)}
       </span>
       <button

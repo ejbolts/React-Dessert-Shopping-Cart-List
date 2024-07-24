@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Modal from "../UI/Modal";
 import { useDispatch } from "react-redux";
-import { openCartConfirmOrder } from "../store/cartSlice";
+import { openCartConfirmOrder } from "../store/uiSlice";
+import { validateForm } from "../util/formValidation";
 
 export default function CartFormDetail() {
   const dispatch = useDispatch();
@@ -32,41 +33,9 @@ export default function CartFormDetail() {
     dispatch(openCartConfirmOrder());
   }
 
-  function validateForm(data: Record<string, FormDataEntryValue>) {
-    const errors: Record<string, string> = {};
-    if (
-      !data.firstName ||
-      typeof data.firstName !== "string" ||
-      data.firstName.trim() === ""
-    ) {
-      errors.firstName = "First name is required";
-    }
-    if (
-      !data.lastName ||
-      typeof data.lastName !== "string" ||
-      data.lastName.trim() === ""
-    ) {
-      errors.lastName = "Last name is required";
-    }
-    if (
-      !data.email ||
-      typeof data.email !== "string" ||
-      !/\S+@\S+\.\S+/.test(data.email)
-    ) {
-      errors.email = "A valid email is required";
-    }
-    if (
-      !data.address ||
-      typeof data.address !== "string" ||
-      data.address.trim() === ""
-    ) {
-      errors.address = "Address is required";
-    }
-    return errors;
-  }
   return (
     <Modal>
-      <div className="my-6 mx-2">
+      <div className="mx-2 my-6">
         <svg viewBox="0 0 1024 1024" fill="currentColor" width="48" height="48">
           <path
             fill="#0E86D4"
@@ -78,10 +47,10 @@ export default function CartFormDetail() {
           />
         </svg>
 
-        <h2 className="font-extrabold text-4xl mt-6 dark:text-white">
+        <h2 className="mt-6 text-4xl font-extrabold dark:text-white">
           Enter Details
         </h2>
-        <p className="text-stone-500 my-1 dark:text-stone-400">
+        <p className="my-1 text-stone-500 dark:text-stone-400">
           Please fill out to complete your order.
         </p>
         <form onSubmit={handleFormSubmit}>
@@ -93,7 +62,7 @@ export default function CartFormDetail() {
               First Name
             </label>
             <input
-              className="border border-gray-200 rounded-md bg-slate-100 pl-2 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
+              className="pl-2 border border-gray-200 rounded-md bg-slate-100 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
               type="text"
               name="firstName"
               id="firstName"
@@ -106,7 +75,7 @@ export default function CartFormDetail() {
               last Name
             </label>
             <input
-              className="border border-gray-200 rounded-md bg-slate-100 pl-2 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
+              className="pl-2 border border-gray-200 rounded-md bg-slate-100 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
               type="text"
               name="lastName"
               id="lastName"
@@ -119,7 +88,7 @@ export default function CartFormDetail() {
               Email
             </label>
             <input
-              className="border border-gray-200 rounded-md bg-slate-100 pl-2 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
+              className="pl-2 border border-gray-200 rounded-md bg-slate-100 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
               type="email"
               name="email"
               id="email"
@@ -132,7 +101,7 @@ export default function CartFormDetail() {
               Address
             </label>
             <input
-              className="border border-gray-200 rounded-md bg-slate-100 pl-2 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
+              className="pl-2 border border-gray-200 rounded-md bg-slate-100 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
               type="text"
               name="address"
               id="address"
@@ -145,14 +114,14 @@ export default function CartFormDetail() {
               Notes
             </label>
             <textarea
-              className="border border-gray-200 rounded-md bg-slate-100 pl-2 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
+              className="pl-2 border border-gray-200 rounded-md bg-slate-100 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
               name="notes"
               id="notes"
             ></textarea>
           </div>
           <button
             type="submit"
-            className={`mt-4 p-3 w-full font-semibold rounded-full  flex items-center justify-center relative  text-white bg-orange hover:bg-orangeHover  ease-linear duration-200`}
+            className={`mt-4 p-3 w-full font-semibold rounded-full flex items-center justify-center relative  text-white bg-orange hover:bg-orangeHover  ease-linear duration-200`}
           >
             Progress to Checkout
           </button>

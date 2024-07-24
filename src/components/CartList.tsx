@@ -34,36 +34,36 @@ export default function CartList({ isModal }: CartListProp) {
                   <img
                     src={food.image.thumbnail}
                     alt={food.name}
-                    className="rounded-md w-16"
+                    className="w-16 rounded-md"
                   />
                 )}
                 <div className="pl-3">
-                  <p className="font-semibold text-stone-800 my-2 dark:text-white">
+                  <p className="my-2 font-semibold text-stone-800 dark:text-white">
                     {food.name}
                   </p>
-                  <span className="text-orange font-semibold ">
+                  <span className="font-semibold text-orange ">
                     {food.quantity}x
                   </span>
                   <div className="inline ">
-                    <span className="text-stone-500 px-2 dark:text-stone-300 ">
+                    <span className="px-2 text-stone-500 dark:text-stone-300 ">
                       @${food.price.toFixed(2)}
                     </span>
                     {!isModal && (
-                      <span className="text-stone-500 font-semibold dark:text-stone-300">
+                      <span className="font-semibold text-stone-500 dark:text-stone-300">
                         ${(food.price * food.quantity).toFixed(2)}
                       </span>
                     )}
                   </div>
                 </div>
                 {isModal && (
-                  <span className="text-stone-800 font-semibold flex-grow text-right dark:text-stone-300">
+                  <span className="flex-grow font-semibold text-right text-stone-800 dark:text-stone-300">
                     ${(food.price * food.quantity).toFixed(2)}
                   </span>
                 )}
                 {!isModal && (
                   <button
                     onClick={() => dispatch(removeItemFromCart(food.id))}
-                    className="text-stone-500 hover:text-stone-800 p-1 ease-linear duration-200"
+                    className="p-1 duration-200 ease-linear text-stone-500 hover:text-stone-800"
                   >
                     <svg
                       fill="none"
@@ -88,7 +88,7 @@ export default function CartList({ isModal }: CartListProp) {
       {!isModal && (
         <div className="flex justify-end w-full dark:text-white">
           <button
-            className="w-16 font-semibold ml-auto mr-2 my-4 hover:text-orange ease-linear duration-200 "
+            className="w-16 my-4 ml-auto mr-2 font-semibold duration-200 ease-linear hover:text-orange "
             onClick={() => dispatch(clearCart())}
           >
             Clear All
@@ -102,11 +102,11 @@ export default function CartList({ isModal }: CartListProp) {
             : "bg-white dark:bg-stone-950"
         } flex flex-col  py-4 px-2`}
       >
-        <div className="flex justify-between items-center w-full">
+        <div className="flex items-center justify-between w-full">
           <span className="text-stone-600 dark:text-stone-400">
             Order Total
           </span>
-          <span className="font-extrabold text-stone-800 dark:text-white text-xl">
+          <span className="text-xl font-extrabold text-stone-800 dark:text-white">
             ${cart.totalCost.toFixed(2)}
           </span>
         </div>

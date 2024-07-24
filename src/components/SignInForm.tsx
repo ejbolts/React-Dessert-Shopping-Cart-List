@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "../UI/Modal";
 import { useDispatch } from "react-redux";
-import { closeCartModal } from "../store/cartSlice";
+import { closeCartModal } from "../store/uiSlice";
 
 interface SignInFormProps {
   userName: string;
@@ -14,7 +14,7 @@ export default function SignInForm({
   const dispatch = useDispatch();
   return (
     <Modal>
-      <div className="my-6 mx-2">
+      <div className="mx-2 my-6">
         <svg
           width="48"
           height="48"
@@ -32,21 +32,21 @@ export default function SignInForm({
           />
         </svg>
 
-        <h2 className="font-extrabold text-4xl mt-6 dark:text-white">
+        <h2 className="mt-6 text-4xl font-extrabold dark:text-white">
           Profile Details
         </h2>
-        <p className="text-stone-500 mt-2 dark:text-stone-400">
+        <p className="mt-2 text-stone-500 dark:text-stone-400">
           You are already signed in!
         </p>
         <div className="flex flex-col py-2">
           <label
             htmlFor="firstName"
-            className="font-semibold dark:text-white py-2"
+            className="py-2 font-semibold dark:text-white"
           >
             UserName
           </label>
           <input
-            className="border border-gray-200 rounded-md bg-slate-100 pl-2 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
+            className="pl-2 border border-gray-200 rounded-md bg-slate-100 dark:bg-stone-800 dark:border-stone-700 dark:text-white"
             value={userName}
             onChange={handleChange}
             type="text"

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { closeCartModal } from "../store/cartSlice";
 import { RootState } from "../store/store";
+import { closeCartModal } from "../store/uiSlice";
 
 interface ModalProps {
   children: React.ReactNode;
@@ -11,9 +11,9 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ children }) => {
   const isCartOpen = useSelector(
     (state: RootState) =>
-      state.cart.modalType.cartFormDetail ||
-      state.cart.modalType.cartConfirmOrder ||
-      state.cart.modalType.signInForm
+      state.ui.modalType.cartFormDetail ||
+      state.ui.modalType.cartConfirmOrder ||
+      state.ui.modalType.signInForm
   );
   const dispatch = useDispatch();
   const dialogRef = useRef<HTMLDialogElement>(null);

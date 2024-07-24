@@ -3,7 +3,6 @@ import Cart from "./components/Cart";
 import FoodList from "./components/FoodList";
 import Header from "./components/Header";
 import "./index.css";
-import { useDispatch } from "react-redux";
 import MobileCartButton from "./UI/MobileCartButton";
 import ConfirmOrder from "./components/ConfirmOrder";
 import CartFormDetail from "./components/CartFormDetail";
@@ -12,7 +11,7 @@ import { RootState } from "./store/store";
 import DarkModeToggle from "./components/DarkModeToggle";
 import SignInForm from "./components/SignInForm";
 export default function App() {
-  const modalType = useSelector((state: RootState) => state.cart.modalType);
+  const modalType = useSelector((state: RootState) => state.ui.modalType);
   const [userName, setUserName] = useState("UserName");
   const [darkMode, setDarkMode] = useState(() => {
     const savedMode = localStorage.getItem("darkMode");
@@ -28,11 +27,11 @@ export default function App() {
   }, [darkMode]);
 
   return (
-    <div className="bg-lightBG min-h-screen dark:bg-stone-900">
+    <div className="min-h-screen bg-lightBG dark:bg-stone-900">
       <DarkModeToggle setDarkMode={setDarkMode} darkMode={darkMode} />
 
       <Header userName={userName} />
-      <div className="flex justify-center max-md:flex-wrap p-7 max-md:p-0 max-md:pb-8 gap-8 mx-12 max-md:gap-0 ">
+      <div className="flex justify-center gap-8 mx-12 max-md:flex-wrap p-7 max-md:p-0 max-md:pb-8 max-md:gap-0 ">
         <FoodList darkMode={darkMode} />
         <Cart />
       </div>

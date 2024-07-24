@@ -1,4 +1,4 @@
-import { CartItem, setItems } from "../store/cartSlice";
+import { CartItem } from "../store/cartSlice";
 import { useQuery } from "@tanstack/react-query";
 import { fetchFoods } from "../util/http";
 import notFound from "../assets/sad-cake.jpg";
@@ -10,6 +10,7 @@ import Search from "./Search";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { SpinnerCircular } from "spinners-react";
+import { setItems } from "../store/uiSlice";
 
 export default function FoodList({ darkMode }: { darkMode: boolean }) {
   const cart = useSelector((state: RootState) => state.cart);
@@ -18,7 +19,7 @@ export default function FoodList({ darkMode }: { darkMode: boolean }) {
     queryFn: fetchFoods,
   });
   const filteredItems = useSelector(
-    (state: RootState) => state.cart.filteredItems
+    (state: RootState) => state.ui.filteredItems
   );
   const dispatch = useDispatch();
   useEffect(() => {
@@ -31,7 +32,7 @@ export default function FoodList({ darkMode }: { darkMode: boolean }) {
     <div className="flex flex-col items-center ">
       <Search />
       {filteredItems.length > 0 ? (
-        <div className="gap-4 max-md:mx-6 mb-10 h-full max-md:mb-30 w-full grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+        <div className="grid w-full h-full gap-4 mb-10 max-md:mx-6 max-md:mb-30 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
           {filteredItems.map((food: CartItem) => {
             const currentStateFood = cart.items.find(
               (item) => item.id === food.id
@@ -40,7 +41,7 @@ export default function FoodList({ darkMode }: { darkMode: boolean }) {
             };
             return (
               <div key={food.id} className="justify-center">
-                <div className="flex flex-col  items-center">
+                <div className="flex flex-col items-center">
                   <img
                     srcSet={`${food.image.mobile} 767w, ${food.image.desktop} 770w`}
                     sizes="(max-width: 767px) 100vw, 770px"
@@ -52,14 +53,14 @@ export default function FoodList({ darkMode }: { darkMode: boolean }) {
                     } rounded-md`}
                   />
                   <Button food={food} />
-                  <div className="flex flex-col ml-0 mr-auto text-left items-start">
-                    <span className="text-stone-500 mt-2 max-md:text-xl dark:text-stone-400">
+                  <div className="flex flex-col items-start ml-0 mr-auto text-left">
+                    <span className="mt-2 text-stone-500 max-md:text-xl dark:text-stone-400">
                       {food.category}
                     </span>
                     <span className="font-semibold text-stone-800 max-md:text-2xl dark:text-white">
                       {food.name}
                     </span>
-                    <span className="text-orange font-semibold max-md:text-xl">
+                    <span className="font-semibold text-orange max-md:text-xl">
                       ${food.price.toFixed(2)}
                     </span>
                   </div>
@@ -69,7 +70,7 @@ export default function FoodList({ darkMode }: { darkMode: boolean }) {
           })}
         </div>
       ) : (
-        <div className="items-center gap-4 max-md:mx-16 mb-10 h-full max-md:mb-30 w-full grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+        <div className="grid items-center w-full h-full gap-4 mb-10 max-md:mx-16 max-md:mb-30 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
           {isLoading ? (
             <span>
               Fetching foods please wait...{" "}
@@ -83,19 +84,19 @@ export default function FoodList({ darkMode }: { darkMode: boolean }) {
             <div className="flex flex-col items-center w-full max-w-[500px]  ">
               {darkMode ? (
                 <img
-                  className="rounded-t-lg w-full object-contain  "
+                  className="object-contain w-full rounded-t-lg "
                   src={notFoundDarkMode}
                   alt="item not found"
                 />
               ) : (
                 <img
-                  className="rounded-t-lg w-full object-contain  "
+                  className="object-contain w-full rounded-t-lg "
                   src={notFound}
                   alt="item not found"
                 />
               )}
 
-              <span className="text-stone-500 max-w-fit rounded-b-lg p-1 text-xl pb-6 text-center font-semibold bg-white min-w-full dark:bg-stone-900">
+              <span className="min-w-full p-1 pb-6 text-xl font-semibold text-center bg-white rounded-b-lg text-stone-500 max-w-fit dark:bg-stone-900">
                 Sorry, no foods found
               </span>
             </div>

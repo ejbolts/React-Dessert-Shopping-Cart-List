@@ -20,30 +20,12 @@ export interface CartState {
   items: CartItem[];
   totalCost: number;
   totalItems: number;
-  modalType: {
-    signInForm: boolean;
-    cartFormDetail: boolean;
-    cartConfirmOrder: boolean;
-  };
-  queryItems: CartItem[];
-  filteredItems: CartItem[];
-  nameFilter: string;
-  categoryFilter: string;
 }
 
 const initialState: CartState = {
   items: [],
   totalCost: 0,
   totalItems: 0,
-  modalType: {
-    signInForm: false,
-    cartFormDetail: false,
-    cartConfirmOrder: false,
-  },
-  queryItems: [],
-  filteredItems: [],
-  nameFilter: "",
-  categoryFilter: "",
 };
 
 const cartSlice = createSlice({
@@ -79,72 +61,15 @@ const cartSlice = createSlice({
         state.totalItems--;
       }
     },
-    setItems(state, action: PayloadAction<CartItem[]>) {
-      state.queryItems = action.payload;
-      state.filteredItems = action.payload;
-    },
-    searchItemName(state, action: PayloadAction<string>) {
-      state.nameFilter = action.payload;
-      state.filteredItems = state.queryItems
-        .filter((item) =>
-          item.name.toLowerCase().includes(state.nameFilter.toLowerCase())
-        )
-        .filter((item) =>
-          item.category
-            .toLowerCase()
-            .includes(state.categoryFilter.toLowerCase())
-        );
-    },
-    searchItemCategory(state, action: PayloadAction<string>) {
-      state.categoryFilter = action.payload;
-      state.filteredItems = state.queryItems
-        .filter((item) =>
-          item.category
-            .toLowerCase()
-            .includes(state.categoryFilter.toLowerCase())
-        )
-        .filter((item) =>
-          item.name.toLowerCase().includes(state.nameFilter.toLowerCase())
-        );
-    },
+
     clearCart(state) {
       state.items = [];
       state.totalCost = 0;
       state.totalItems = 0;
     },
-    openCartFormDetail(state) {
-      state.modalType.cartFormDetail = true;
-      state.modalType.cartConfirmOrder = false;
-      state.modalType.signInForm = false;
-    },
-    openCartConfirmOrder(state) {
-      state.modalType.cartFormDetail = false;
-      state.modalType.cartConfirmOrder = true;
-      state.modalType.signInForm = false;
-    },
-    openSignInForm(state) {
-      state.modalType.cartFormDetail = false;
-      state.modalType.cartConfirmOrder = false;
-      state.modalType.signInForm = true;
-    },
-    closeCartModal(state) {
-      state.modalType.cartFormDetail = false;
-      state.modalType.cartConfirmOrder = false;
-      state.modalType.signInForm = false;
-    },
   },
 });
 
-export const {
-  addItemToCart,
-  removeItemFromCart,
-  openCartFormDetail,
-  openCartConfirmOrder,
-  openSignInForm,
-  closeCartModal,
-  setItems,
-  searchItemName,
-  searchItemCategory,
-  clearCart,
-} = cartSlice.actions;
+export const { addItemToCart, removeItemFromCart, clearCart } =
+  cartSlice.actions;
 export default cartSlice.reducer;

@@ -1,14 +1,14 @@
 import React from "react";
 import Modal from "../UI/Modal";
 import { useDispatch } from "react-redux";
-import { closeCartModal } from "../store/cartSlice";
 import CartList from "./CartList";
+import { closeCartModal } from "../store/uiSlice";
 
 export default function ConfirmOrder() {
   const dispatch = useDispatch();
   return (
     <Modal>
-      <div className="my-6 mx-2">
+      <div className="mx-2 my-6">
         <svg
           width="48"
           height="48"
@@ -26,10 +26,10 @@ export default function ConfirmOrder() {
           />
         </svg>
 
-        <h2 className="font-extrabold text-4xl mt-6 dark:text-white">
+        <h2 className="mt-6 text-4xl font-extrabold dark:text-white">
           Order Confirmed
         </h2>
-        <p className="text-stone-500 mt-2 dark:text-stone-400">
+        <p className="mt-2 text-stone-500 dark:text-stone-400">
           We hope you enjoy your food!
         </p>
         <CartList isModal={true} />

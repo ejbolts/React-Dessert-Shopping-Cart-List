@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   addItemToCart,
@@ -28,7 +27,7 @@ export default function Button({ food }: ButtonProps) {
           } p-2  shadow-md border-solid border-2 rounded-full w-[167px] flex items-center justify-center relative -mt-5 text-stone-800  hover:border-orange ease-linear duration-200`}
         >
           <button
-            className="bg-white rounded-full  hover:bg-orange ease-linear duration-200 "
+            className="duration-200 ease-linear bg-white rounded-full hover:bg-orange "
             onClick={() => dispatch(removeItemFromCart(currentStateFood.id))}
           >
             <svg
@@ -49,11 +48,11 @@ export default function Button({ food }: ButtonProps) {
           </span>
 
           <button
-            className="bg-white rounded-full hover:bg-orange ease-linear duration-200"
+            className="duration-200 ease-linear bg-white rounded-full hover:bg-orange"
             onClick={() => dispatch(addItemToCart(food))}
           >
             <svg
-              className="fill-orange hover:fill-white ease-linear duration-200"
+              className="duration-200 ease-linear fill-orange hover:fill-white"
               viewBox="-2 0 20 16"
               height="1.25em"
               width="1.25em"
@@ -86,7 +85,7 @@ export default function Button({ food }: ButtonProps) {
               <path fill="#fff" d="M.333 0h20v20h-20z" />
             </defs>
           </svg>
-          <span className="font-semibold pl-2 "> Add to Cart</span>
+          <span className="pl-2 font-semibold "> Add to Cart</span>
         </button>
       )}
     </>
