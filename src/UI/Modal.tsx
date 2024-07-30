@@ -1,48 +1,37 @@
-import React, { useEffect, useRef } from "react";
+import React, {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from "react";
 import ReactDOM from "react-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../store/store";
-import { closeCartModal } from "../store/uiSlice";
 
 interface ModalProps {
   children: React.ReactNode;
+  onClose: () => void;
 }
-
-const Modal: React.FC<ModalProps> = ({ children }) => {
-  const isCartOpen = useSelector(
-    (state: RootState) =>
-      state.ui.modalType.cartFormDetail ||
-      state.ui.modalType.cartConfirmOrder ||
-      state.ui.modalType.signInForm
-  );
-  const dispatch = useDispatch();
+export interface ModalHandleRef {
+  open: () => void;
+}
+const ModalComponent = forwardRef<ModalHandleRef, ModalProps>(function Modal(
+  { children, onClose },
+  ref
+) {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        dispatch(closeCartModal());
-      }
-    };
-
-    if (isCartOpen) {
+  useImperativeHandle(ref, () => ({
+    open() {
       dialogRef.current?.showModal();
-      document.addEventListener("keydown", handleKeyDown);
-    } else {
-      dialogRef.current?.close();
-      document.removeEventListener("keydown", handleKeyDown);
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [isCartOpen, dispatch]);
+    },
+  }));
 
   return ReactDOM.createPortal(
     <dialog
       ref={dialogRef}
       className="modal-dialog rounded-xl md:w-[500px] max-md:mx-0 max-md:mb-0 px-8 max-md:min-w-full dark:bg-stone-950 "
-      onClick={() => dispatch(closeCartModal())}
+      onClose={onClose}
+      onClick={onClose}
     >
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         {children}
@@ -50,6 +39,6 @@ const Modal: React.FC<ModalProps> = ({ children }) => {
     </dialog>,
     document.getElementById("modal")!
   );
-};
+});
 
-export default Modal;
+export default ModalComponent;

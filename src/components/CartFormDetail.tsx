@@ -1,10 +1,18 @@
 import React, { useState } from "react";
-import Modal from "../UI/Modal";
+import Modal, { ModalHandleRef } from "../UI/Modal";
 import { useDispatch } from "react-redux";
 import { openCartConfirmOrder } from "../store/uiSlice";
 import { validateForm } from "../util/formValidation";
 
-export default function CartFormDetail() {
+interface CartFormDetailProps {
+  handleModalClose: () => void;
+  modalRef: React.RefObject<ModalHandleRef>;
+}
+
+export default function CartFormDetail({
+  handleModalClose,
+  modalRef,
+}: CartFormDetailProps) {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({
     firstName: "",
@@ -34,7 +42,7 @@ export default function CartFormDetail() {
   }
 
   return (
-    <Modal>
+    <Modal ref={modalRef} onClose={handleModalClose}>
       <div className="mx-2 my-6">
         <svg viewBox="0 0 1024 1024" fill="currentColor" width="48" height="48">
           <path

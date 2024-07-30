@@ -1,19 +1,20 @@
 import React from "react";
-import Modal from "../UI/Modal";
-import { useDispatch } from "react-redux";
-import { closeCartModal } from "../store/uiSlice";
+import Modal, { ModalHandleRef } from "../UI/Modal";
 
 interface SignInFormProps {
   userName: string;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  modalRef: React.RefObject<ModalHandleRef>;
+  handleModalClose: () => void;
 }
 export default function SignInForm({
+  handleModalClose,
+  modalRef,
   userName,
   handleChange,
 }: SignInFormProps) {
-  const dispatch = useDispatch();
   return (
-    <Modal>
+    <Modal ref={modalRef} onClose={handleModalClose}>
       <div className="mx-2 my-6">
         <svg
           width="48"
@@ -56,7 +57,7 @@ export default function SignInForm({
           />
         </div>
         <button
-          onClick={() => dispatch(closeCartModal())}
+          onClick={handleModalClose}
           className={`mt-4 p-3 w-full font-semibold rounded-full  flex items-center justify-center relative  text-white bg-orange hover:bg-orangeHover  ease-linear duration-200`}
         >
           close
