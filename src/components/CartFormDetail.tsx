@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import Modal, { ModalHandleRef } from "../UI/Modal";
+import Modal from "../UI/Modal";
 import { useDispatch } from "react-redux";
 import { openCartConfirmOrder } from "../store/uiSlice";
 import { validateForm } from "../util/formValidation";
 
 interface CartFormDetailProps {
-  handleModalClose: () => void;
-  modalRef: React.RefObject<ModalHandleRef>;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export default function CartFormDetail({
-  handleModalClose,
-  modalRef,
+  isOpen,
+  onClose,
 }: CartFormDetailProps) {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState({
@@ -42,7 +42,7 @@ export default function CartFormDetail({
   }
 
   return (
-    <Modal ref={modalRef} onClose={handleModalClose}>
+    <Modal isOpen={isOpen} onClose={onClose}>
       <div className="mx-2 my-6">
         <svg viewBox="0 0 1024 1024" fill="currentColor" width="48" height="48">
           <path

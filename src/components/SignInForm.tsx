@@ -1,20 +1,21 @@
 import React from "react";
-import Modal, { ModalHandleRef } from "../UI/Modal";
+import Modal from "../UI/Modal";
 
 interface SignInFormProps {
   userName: string;
   handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  modalRef: React.RefObject<ModalHandleRef>;
-  handleModalClose: () => void;
+
+  isOpen: boolean;
+  onClose: () => void;
 }
 export default function SignInForm({
-  handleModalClose,
-  modalRef,
+  isOpen,
+  onClose,
   userName,
   handleChange,
 }: SignInFormProps) {
   return (
-    <Modal ref={modalRef} onClose={handleModalClose}>
+    <Modal isOpen={isOpen} onClose={onClose}>
       <div className="mx-2 my-6">
         <svg
           width="48"
@@ -57,7 +58,7 @@ export default function SignInForm({
           />
         </div>
         <button
-          onClick={handleModalClose}
+          onClick={onClose}
           className={`mt-4 p-3 w-full font-semibold rounded-full  flex items-center justify-center relative  text-white bg-orange hover:bg-orangeHover  ease-linear duration-200`}
         >
           close

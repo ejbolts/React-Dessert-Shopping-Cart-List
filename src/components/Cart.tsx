@@ -3,9 +3,13 @@ import { RootState } from "../store/store";
 import { useDispatch } from "react-redux";
 import CartList from "./CartList";
 import { openCartFormDetail } from "../store/uiSlice";
-export default function Cart() {
+export default function Cart({ openModal }: { openModal: () => void }) {
   const cart = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
+  function OpenCartModal() {
+    dispatch(openCartFormDetail());
+    openModal();
+  }
   return (
     <div className="w-full max-w-2xl p-4 pb-6 mt-24 bg-white rounded-md md:min-w-60 max-md:min-w-full max-md:mr-0 place-self-start dark:bg-stone-950">
       <h2 className="text-2xl font-extrabold text-orange">
@@ -105,7 +109,7 @@ export default function Cart() {
           </div>
 
           <button
-            onClick={() => dispatch(openCartFormDetail())}
+            onClick={OpenCartModal}
             className={`mt-4 p-3  md:px-6 w-full  mx-auto font-semibold rounded-full  flex items-center justify-center relative  text-white bg-orange hover:bg-orangeHover  ease-linear duration-200`}
           >
             Confirm Order

@@ -1,21 +1,18 @@
 import React from "react";
-import Modal, { ModalHandleRef } from "../UI/Modal";
+import Modal from "../UI/Modal";
 import { useDispatch } from "react-redux";
 import CartList from "./CartList";
 import { closeCartModal } from "../store/uiSlice";
 
 interface ConfirmOrderProps {
-  handleModalClose: () => void;
-  modalRef: React.RefObject<ModalHandleRef>;
+  onClose: () => void;
+  isOpen: boolean;
 }
 
-export default function ConfirmOrder({
-  handleModalClose,
-  modalRef,
-}: ConfirmOrderProps) {
+export default function ConfirmOrder({ isOpen, onClose }: ConfirmOrderProps) {
   const dispatch = useDispatch();
   return (
-    <Modal onClose={handleModalClose} ref={modalRef}>
+    <Modal isOpen={isOpen} onClose={onClose}>
       <div className="mx-2 my-6">
         <svg
           width="48"
