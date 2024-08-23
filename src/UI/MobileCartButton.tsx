@@ -4,9 +4,17 @@ import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { openCartFormDetail } from "../store/uiSlice";
 
-export default function MobileCartButton() {
-  const dispatch = useDispatch();
+export default function MobileCartButton({
+  openModal,
+}: {
+  openModal: () => void;
+}) {
   const cart = useSelector((state: RootState) => state.cart);
+  const dispatch = useDispatch();
+  function OpenCartModal() {
+    dispatch(openCartFormDetail());
+    openModal();
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +44,7 @@ export default function MobileCartButton() {
         Total: ${cart.totalCost.toFixed(2)}
       </span>
       <button
-        onClick={() => dispatch(openCartFormDetail())}
+        onClick={OpenCartModal}
         disabled={cart.totalItems < 1}
         className={`mt-4 p-3 w-full font-semibold rounded-full flex items-center justify-center relative text-white bg-orange hover:bg-orangeHover ease-linear duration-200 ${
           cart.totalItems < 1 ? "opacity-50 cursor-not-allowed" : ""

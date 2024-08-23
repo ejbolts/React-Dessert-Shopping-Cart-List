@@ -45,7 +45,7 @@ export default function App() {
         <FoodList darkMode={darkMode} />
         <Cart openModal={openModal} />
       </div>
-      <MobileCartButton />
+      <MobileCartButton openModal={openModal} />
       {cartFormDetail && (
         <CartFormDetail isOpen={isModalOpen} onClose={onClose} />
       )}
