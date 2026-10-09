@@ -56,7 +56,7 @@ export default function CartList({ isModal }: CartListProp) {
                   </div>
                 </div>
                 {isModal && (
-                  <span className="flex-grow font-semibold text-right text-stone-800 dark:text-stone-300">
+                  <span className="grow font-semibold text-right text-stone-800 dark:text-stone-300">
                     ${(food.price * food.quantity).toFixed(2)}
                   </span>
                 )}

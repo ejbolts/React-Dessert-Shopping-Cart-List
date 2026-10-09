@@ -2,6 +2,10 @@
 
 My solution to the FrontEnd Mentor Product list with cart project.
 
+For development, use Node.js 22.12+ and Yarn 1.22.22. Install dependencies with
+`yarn install --frozen-lockfile`, then run `yarn dev`. Run checks with `yarn lint`,
+`yarn build`, and `yarn test --run --coverage`.
+
 ## Table of contents
 
 - [Overview](#overview)
