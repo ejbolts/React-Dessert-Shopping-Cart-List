@@ -2,40 +2,14 @@ name: CI Pipeline
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
-  cache:
+  validate:
     runs-on: ubuntu-latest
-    steps:
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20.x"
-
-      - name: Cache node modules
-        id: cache-npm
-
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
-        name: List the state of node modules
-        continue-on-error: true
-        run: npm list
-
-  Lint:
-    runs-on: ubuntu-latest
-    needs: cache
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -43,55 +17,24 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20.x"
+          node-version: "22.x"
 
-      - name: Install dependencies
-        if: ${{ needs.cache.outputs.cache-hit != 'true' }}
-        run: npm install
+      - name: Set up Yarn
+        run: corepack enable
+
+      - name: Install dependencies from the audited lockfile
+        run: yarn install --frozen-lockfile
 
       - name: Run lint
-        run: npm run lint
-
-  Build:
-    runs-on: ubuntu-latest
-    needs: Lint
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20.x"
-
-      - name: Install dependencies
-        if: ${{ needs.cache.outputs.cache-hit != 'true' }}
-        run: npm install
+        run: yarn lint
 
       - name: Build project
-        run: npm run build
+        run: yarn build
 
-  Test:
-    runs-on: ubuntu-latest
-    needs: Build
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20.x"
-
-      - name: Install dependencies
-        if: ${{ needs.cache.outputs.cache-hit != 'true' }}
-        run: npm install
-
-      - name: Run test coverage
-        run: npm run test-coverage
+      - name: Run tests with coverage
+        run: yarn test --run --coverage
 
       - name: Upload coverage report
-        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
